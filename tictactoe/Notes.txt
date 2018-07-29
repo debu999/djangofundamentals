@@ -1,0 +1,123 @@
+doogle@doogle-pc:/doogle/GIT_REPO/djangofundamentals$ cd tictactoe/
+doogle@doogle-pc:/doogle/GIT_REPO/djangofundamentals/tictactoe$ python3 manage.py showmigrations
+doogle@doogle-pc:/doogle/GIT_REPO/djangofundamentals/tictactoe$ python3 manage.py migrate
+doogle@doogle-pc:/doogle/GIT_REPO/djangofundamentals/tictactoe$ ls -lrt
+total 140
+-rwxr-xr-x 1 doogle doogle    541 Jul 29 05:21 manage.py
+drwxr-xr-x 2 doogle doogle   4096 Jul 29 05:25 __pycache__
+drwxr-xr-x 3 doogle doogle   4096 Jul 29 08:47 tictactoe
+-rw-r--r-- 1 doogle doogle 131072 Jul 29 09:05 db.sqlite3
+doogle@doogle-pc:/doogle/GIT_REPO/djangofundamentals/tictactoe$ python manage.py startapp gameplay
+  File "manage.py", line 14
+    ) from exc
+         ^
+SyntaxError: invalid syntax
+doogle@doogle-pc:/doogle/GIT_REPO/djangofundamentals/tictactoe$ python3 manage.py startapp gameplay
+doogle@doogle-pc:/doogle/GIT_REPO/djangofundamentals/tictactoe$ python3 manage.py makemigrations
+Migrations for 'gameplay':
+  gameplay/migrations/0001_initial.py
+    - Create model Game
+    - Create model Move
+doogle@doogle-pc:/doogle/GIT_REPO/djangofundamentals/tictactoe$ python3 manage.py makemigrations
+No changes detected
+doogle@doogle-pc:/doogle/GIT_REPO/djangofundamentals/tictactoe$ python3 manage.py sqlmigrate gameplay 0001
+BEGIN;
+--
+-- Create model Game
+--
+CREATE TABLE "gameplay_game" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "starttime" datetime NOT NULL, "lastactive" datetime NOT NULL, "fplayer_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED, "splayer_id" integer NOT NULL REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED);
+--
+-- Create model Move
+--
+CREATE TABLE "gameplay_move" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "x" integer NOT NULL, "y" integer NOT NULL, "comment" varchar(500) NOT NULL, "byfirstplayer" bool NOT NULL, "game_id" integer NOT NULL REFERENCES "gameplay_game" ("id") DEFERRABLE INITIALLY DEFERRED);
+CREATE INDEX "gameplay_game_fplayer_id_83f0fa8c" ON "gameplay_game" ("fplayer_id");
+CREATE INDEX "gameplay_game_splayer_id_3b4a87b3" ON "gameplay_game" ("splayer_id");
+CREATE INDEX "gameplay_move_game_id_9147ef33" ON "gameplay_move" ("game_id");
+COMMIT;
+
+python3 manage.py migrate gameplay -- this will create tables.
+
+doogle@doogle-pc:/doogle/GIT_REPO/djangofundamentals/tictactoe$ python3 manage.py createsuperuser
+Superuser created successfully.
+
+python3 manage.py shell
+In [1]: from gameplay.models import Game, Move
+
+In [2]: Game.objects
+Out[2]: <django.db.models.manager.Manager at 0x7f0452293978>
+
+In [3]: Game.objects.all()
+Out[3]: <QuerySet [<Game: bob vs doogle>, <Game: John vs bob>, <Game: doogle vs John>]>
+g1 = Game.objects.get(pk=1)
+
+In [4]: g1 = Game.objects.get(pk=1)
+
+In [5]: print(g1)
+bob vs doogle
+
+In [6]: gi
+---------------------------------------------------------------------------
+NameError                                 Traceback (most recent call last)
+<ipython-input-6-998e7c1af061> in <module>()
+----> 1 gi
+
+NameError: name 'gi' is not defined
+
+In [7]: g1
+Out[7]: <Game: bob vs doogle>
+
+In [8]: g1.__dict__
+Out[8]:
+{'_state': <django.db.models.base.ModelState at 0x7f045225b5c0>,
+ 'id': 1,
+ 'fplayer_id': 4,
+ 'splayer_id': 3,
+ 'starttime': datetime.datetime(2018, 7, 29, 2, 40, 3, 231210, tzinfo=<UTC>),
+ 'lastactive': datetime.datetime(2018, 7, 29, 2, 46, 1, 517128, tzinfo=<UTC>),
+ 'status': 'F'}
+
+In [9]: g1.status="S"
+
+In [10]: g1.save()
+
+In [11]: Game.objects.filter(status="F")
+Out[11]: <QuerySet [<Game: John vs bob>, <Game: doogle vs John>]>
+
+In [12]: Game.objects.filter(status="S")
+Out[12]: <QuerySet [<Game: bob vs doogle>]>
+Game.objects.exclude(status="F")
+see __ thats the key to access data for a member variable
+Game.objects.filter(splayer__username="doogle")
+Game.objects.filter(splayer__username="John")
+
+create first move
+m = Move(x=0, y=1, comment="let the best player win!", byfirstplayer=True, game=g1)
+m.save()
+
+g1.move_set (This is default name of all moves in game g1 - Naming Convention: rel table
+name_set viz. for Move table its move_set)
+
+g1.move_set.all()
+In [30]: g1.move_set.count()
+Out[30]: 2
+
+In [31]: g1.move_set.all()
+Out[31]: <QuerySet [<Move: Move object (1)>, <Move: Move object (2)>]>
+
+In [32]: g1.move_set.exclude(byfirstplayer=True)
+Out[32]: <QuerySet [<Move: Move object (2)>]>
+
+@admin.register(Move)
+class MoveAdmin(admin.ModelAdmin):
+    list_display = ("mvdet", "x", "y", "comment", "byfirstplayer", "movetime")
+    list_editable = ("comment", )
+
+    def mvdet(self, obj):
+        return str(obj)
+    mvdet.short_description = "Move Details"
+
+q2 = Move.objects.all()
+q3 = q2.exclude(game__status = "S")
+q3 = q2.exclude(game__status = "F")
+
+

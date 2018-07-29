@@ -1,0 +1,20 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link href="{% static 'player/style.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <h1>Welcome {{ user.username }}</h1>
+    These are your active games.
+    <ul>
+        {% for g in games %}
+            <li>Game {{ g.id }}: {{ g.fplayer }} vs {{ g.splayer }}</li>
+        {% endfor %}
+    </ul>
+    Hi! There are currently {{ games|length}} active games in the system for user {{ user.username }}.
+</body>
+</html>
