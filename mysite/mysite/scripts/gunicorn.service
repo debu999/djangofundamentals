@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn daemon
+After=network.target
+
+[Service]
+User=doogle
+Group=mysite
+WorkingDirectory=/doogle/githubrepos/djangofundamentals/mysite
+ExecStart=/doogle/githubrepos/pyvenvs/djangopy37/bin/gunicorn --access-logfile - --workers 3 --bind unix:/doogle/githubrepos/djangofundamentals/mysite/mysite.sock mysite.wsgi:application
+
+[Install]
+WantedBy=multi-user.target
