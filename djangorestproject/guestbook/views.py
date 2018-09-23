@@ -51,13 +51,14 @@ def addtodo(request):
     # form = TodoForm(request.POST)
     # text = request.POST["text"]
     # print(text)
-    todo9 = Todo.objects.get(pk=9)
-    newtodoform = NewTodoForm(request.POST, instance=todo9)
+    pk = request.POST.get("id_todo", 0)
+    if pk:
+        todoobj = Todo.objects.get(pk=pk)
+        newtodoform = NewTodoForm(request.POST, instance=todoobj)
+    else:
+        newtodoform = NewTodoForm(request.POST)
 
     if newtodoform.is_valid():
-        # text = form.cleaned_data["text"]
-        # newtodo = Todo(text=text)
-        # newtodo.save()
         newtodoform.save()
 
     return redirect("todoindex")
@@ -78,6 +79,12 @@ def deletecompleted(request):
 
 
 def deleteall(request):
+    Todo.objects.all().delete()
+
+    return redirect("todoindex")
+
+
+def updatenote(request):
     Todo.objects.all().delete()
 
     return redirect("todoindex")

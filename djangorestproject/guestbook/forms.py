@@ -28,15 +28,16 @@ class NewTodoForm(forms.ModelForm):
     #                                                      "aria-label": "Todo",
     #                                                      "aria-describedby": "add-btn"
     #                                                      }))4
-
+    todoid = forms.HiddenInput()
     class Meta:
         model = Todo
-        fields = ["text"]
+        fields = ["text", ]
         widgets = {
             "text": forms.TextInput(attrs={"style": "font-style:italic",
                                            "class": "form-control",
                                            "placeholder": "Enter ToDo e.g. Workout today.",
                                            "aria-label": "Todo",
                                            "aria-describedby": "add-btn"
-                                           })
+                                           }),
+            "todoid": forms.HiddenInput()
         }
