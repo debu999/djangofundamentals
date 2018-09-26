@@ -23,5 +23,6 @@ urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
     re_path(r"^employees/", views.EmployeeList.as_view()),
     path('', include("languages.urls")),
-    path('guestbook/', include("guestbook.urls"))
+    path('guestbook/', include("guestbook.urls")),
+    path('accounts/', include("django.contrib.auth.urls"))
 ]

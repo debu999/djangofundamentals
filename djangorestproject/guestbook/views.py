@@ -1,3 +1,4 @@
+from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 
 # Create your views here.
@@ -6,6 +7,7 @@ from django.views.decorators.http import require_POST
 from .models import Comment, Todo
 from . import models
 from .forms import CommentForm, TodoForm, NewTodoForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 
 
 def home(request):
@@ -88,3 +90,23 @@ def updatenote(request):
     Todo.objects.all().delete()
 
     return redirect("todoindex")
+
+
+def register(request):
+    if request.method == "GET":
+        form = UserCreationForm()
+    else:
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password1"]
+            password2 = form.cleaned_data["password2"]
+            user = authenticate(username=username, password=password)
+            login(request, user)
+
+            return redirect("todoindex")
+
+    context = {"form": form}
+    return render(request, "registration/register.html", context)

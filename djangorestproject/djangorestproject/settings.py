@@ -138,3 +138,5 @@ STATIC_URL = '/static/'
 PROJECT_ROOT = Path(__file__).parents[1]
 
 STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'guestbook/static/'), ]
+
+LOGIN_REDIRECT_URL = "/guestbook/todoindex"
