@@ -25,5 +25,5 @@ router.register("popularity", views.PopularityView)
 router.register("programmer", views.ProgrammerView)
 urlpatterns = [
     path('', include(router.urls)),
-    path("languages/index", views.index, name="index")
+    path("index", views.index, name="index")
 ]

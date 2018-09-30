@@ -18,11 +18,16 @@ from django.urls import path, re_path, include
 from rest_framework.urlpatterns import format_suffix_patterns
 
 from restapi import views
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
     re_path(r"^employees/", views.EmployeeList.as_view()),
     path('', include("languages.urls")),
     path('guestbook/', include("guestbook.urls")),
-    path('accounts/', include("django.contrib.auth.urls"))
+    path('accounts/', include("django.contrib.auth.urls")),
+    path("urlex/", include("urlsexamples.urls")),
+    path("apiauth/", include("rest_framework.urls")),
+    path("api/token", TokenObtainPairView.as_view()),
+    path("api/token/refresh", TokenRefreshView.as_view()),
 ]

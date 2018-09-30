@@ -1,0 +1,227 @@
+from guestbook.models import Course, Section, Lecture
+cnm = ['Python Fundamentals', 'Complete Python Masterclass', 'The Python Bible | Everything You Need to Program in Python', '30 Days of Python | Unlock your Python Potential', 'Mastering Python', 'Python for Dummies', 'Django for Dummies']
+unhy = ("_", "-")
+
+for c in cnm:
+    def slugger(x):
+        t=True
+        while t:
+            x=x.replace(" ", random.choice(unhy), 1)
+            t = " " in x
+            return x
+def slugger(x):
+    t=True
+    while t:
+        x=x.replace(" ", random.choice(unhy), 1)
+        t = " " in x
+    return x
+[(x,slugger(x) for x in cnm]
+
+for tit, slg in [(x,slugger(x)) for x in cnm]:
+    print(tit, slg)
+
+for tit, slg in [(x,slugger(x)) for x in cnm]:
+    Course(title=tit, slug=slg).save()
+Course.objects.all()
+qs = Course.objects.all()
+qs[0].title
+qs[0].slug
+qs[0].dateadded
+qs[0].date_added
+secs = ["Set Up", "CRUD Operations", "Advanced Kernel Processing", "Multi Threading"]
+for s in secs:
+    Section(title=s, course=random.choice(qs), order=radom.choice(range(100)).save()
+            )
+for s in secs:
+    Section(title=s, course=random.choice(qs), order=radom.choice(range(100))).save()
+for s in secs:
+    Section(title=s, course=random.choice(qs), order=random.choice(range(100))).save()
+sqs = Section.object.all()
+sqs = Section.objects.all()
+sqs
+lec = ["Database Setup", "URI Determination", "Flask Installation", "Database Connection"]
+for l in lec:
+    Lecture(title=l, order=random.choice(100), code_link = "setup", slug=slugger(l), section=random.choice(sqs)).save
+for l in lec:
+    Lecture(title=l, order=random.choice(range(100)), code_link = "setup", slug=slugger(l), section=random.choice(sqs)).save
+for l in lec:
+    Lecture(title=l, order=random.choice(range(100)), code_link = "setup", slug=slugger(l), section=random.choice(sqs)).save()
+lqs = Lecture.objects.all()
+lqs
+for x in lqs[3].__dict__:
+    print(x)
+for x in lqs[3].__dict__:
+    lqs[3].get(x)
+for x in lqs[3].vars()
+vars(lqs[2])
+for x in lqs:
+    print(vars(x))
+c=Courses.objects.filter(title="Python Fundamentals")
+c=Course.objects.filter(title="Python Fundamentals")
+c
+c.section_set
+vars(c)
+for x in sqs:
+    vars(sqs)
+for x in sqs:
+    x.course
+for x in lqs:
+    lqs.section
+for x in lqs:
+    x.section
+for x in lqs:
+    x.section
+x
+for x in sqs:
+    x
+x.course
+c.Section_set
+c=Course.objects.filter(title="Python Fundamentals")
+c
+c = c[0]
+c
+c.section_set
+c.section_set()
+c.section_set
+c.section_set.all()
+sqs
+Section(title="Set Up", course=c, order =2).save()
+sqs = Section.objects.all()
+sqs
+c.section_set.all()
+lqs[2]
+c.section_set.all()[1].lecture_set
+c.section_set.all()[1].lecture_set.all()
+c.section_set.all()[0].lecture_set.all()
+c.section_set.all()[0]
+for l in lqs:
+    print(l, l.section)
+for l in lqs:
+    print(l,"8888", l.section)
+for x in ["c1", "c2", "c3"]
+for x in ["c1", "c2", "c3"]:
+    Course(title=x).save()
+for x in ["s1", "s2", "s3"]:
+    Section(title=x, course=Courses.objects.all().order_by("-date_added")[0], order=
+for x in ["s1", "s2", "s3"]:
+    cnt=1
+for x in ["s1", "s2", "s3"]:
+    Section(title=x, course=Courses.objects.all().order_by("-date_added")[0], order= cnt).save()
+cnt = cnt+1
+cnt=1
+for x in ["s1", "s2", "s3"]:
+    Section(title=x, course=Course.objects.all().order_by("-date_added")[0], order= cnt).save()
+cnt = cnt+1
+Section.objects.all().order_by("-id")
+[x.course for x in Section.objects.all().order_by("-id")]
+[(x.course, x.order) for x in Section.objects.all().order_by("-id")]
+cnt=1
+for x in ["l1", "l2", "l3"]:
+    Lecture(title=x, section=Section.objects.all().order_by("-id")[0], order= cnt).save()
+    [(x.section, x.order) for x in Lecture.objects.all().order_by("-id")]
+[(x.section, x.order) for x in Lecture.objects.all().order_by("-id")][:3]
+[x for x in Lecture.objects.all().order_by("-id")][:3]
+cnt = 1
+for l in [x for x in Lecture.objects.all().order_by("-id")][:3]:
+    l.order=cnt
+cnt += 1
+l.save()
+[(x.section, x.order) for x in Lecture.objects.all().order_by("-id")][:3]
+Lecture.objects.filter(section__course__title="c3")
+for s in [s.title for s in Section.objects.all().order_by("-id")]:
+    Course.objects.filter(section__title=s)
+for s in [s.title for s in Section.objects.all().order_by("-id")]:
+    Course.objects.filter(section__title=s), ":", s
+for s in [(s.title, s.course, s.course.id) for s in Section.objects.all().order_by("-id")]
+[(s.title, s.course, s.course.id) for s in Section.objects.all().order_by("-id")]
+for l in [l for l in Lecture.objects.all().order_by["-id"]]:
+    l
+for l in [l for l in Lecture.objects.all().order_by("-id")]:
+    l
+for l in [l for l in Lecture.objects.all().order_by("-id")]:
+    Courese.objecs.filter(section__lecture__title=l.title)
+l
+for l in [l for l in Lecture.objects.all().order_by("-id")]:
+    Courses.objecs.filter(section__lecture__title=l.title), l
+for l in [l for l in Lecture.objects.all().order_by("-id")]:
+    Course.objecs.filter(section__lecture__title=l.title), l
+for l in [l for l in Lecture.objects.all().order_by("-id")]:
+    Course.objects.filter(section__lecture__title=l.title), l
+import readlines
+import readline
+readline.get_current_history_leength()
+readline.get_current_history_length()
+readline.get_history_item(0)
+readline.get_history_item(1)
+readline.get_current_history_length()
+def history(lastn):
+    flen = len(str(lastn)) + 1 if lastn else len(str(readline.get_current_history_length())) + 1
+def history(lastn):
+    flen = len(str(lastn)) if lastn else len(str(readline.get_current_history_length()))
+    hlen = readline.get_current_history_length()
+    for r in range(hlen) if not lastn else range(hlen)[-lastn:]:
+        print ": ".join([str(r).rjust(flen), readline.get_history_item(r)])
+def history(lastn):
+    flen = len(str(lastn)) if lastn else len(str(readline.get_current_history_length()))
+    hlen = readline.get_current_history_length()
+def history(lastn):
+    hlen = readline.get_current_history_length()
+    flen = len(str(lastn)) if lastn else len(str(hlen))
+    for r in range(hlen) if not lastn else range(hlen)[-lastn:]:
+        print(": ".join([str(r + lastn - hlen +1 if lastn else r ).rjust(flen), readline.get_history_item(r)]))
+history(1)
+history(2)
+history(10)
+def ipyhistory(lastn=None):
+    import readline
+    assert lastn is None or (isinstance(lastn, int) and lastn > 0), "Only positive numbers are allowed."
+    hlen = readline.get_current_history_length()
+    flen = len(str(lastn)) if lastn else len(str(hlen))
+    for r in range(hlen) if not lastn else range(hlen)[-lastn:]:
+        print(": ".join([str(r + lastn - hlen + 1 if lastn else r).rjust(flen), readline.get_history_item(r)]))
+ipyhistory(10)
+ipyhistory(-1)
+ipyhistory("1")
+ipyhistory()
+def ipyhistory(lastn=None):
+    import readline
+    print(lastn is None)
+    assert lastn is None or (isinstance(lastn, int) and lastn > 0), "Only positive integers are allowed."
+    hlen = readline.get_current_history_length()
+    flen = len(str(lastn)) if lastn else len(str(hlen))
+    for r in range(hlen) if not lastn else range(hlen)[-lastn:]:
+        print(": ".join([str(r + lastn - hlen + 1 if lastn else r).rjust(flen), readline.get_history_item(r)]))
+ipyhistory()
+def ipyhistory(lastn=None):
+    import readline
+    print(lastn is None)
+    assert lastn is None or (isinstance(lastn, int) and lastn > 0), "Only positive integers are allowed."
+    hlen = readline.get_current_history_length()
+    flen = len(str(hlen)) if not lastn else len(str(lastn))
+    for r in range(hlen) if not lastn else range(hlen)[-lastn:]:
+        print(": ".join([str(r if not lastn else r + lastn - hlen + 1 ).rjust(flen), readline.get_history_item(r)]))
+ipyhistory()
+ipyhistory(1)
+ipyhistory(2)
+ipyhistory(3)
+ipyhistory(2)
+ipyhistory(1)
+def ipyhistory(lastn=None):
+    """
+    param: lastn Defaults to None i.e full history. If specified then returns lastn records from history.
+           Also takes -ve sequence for first n history records.
+    """
+    import readline
+    assert lastn is None or isinstance(lastn, int), "Only integers are allowed."
+    hlen = readline.get_current_history_length()
+
+    is_neg = lastn is not None and lastn < 0
+    if not is_neg:
+        flen = len(str(hlen)) if not lastn else len(str(lastn))
+        for r in range(1,hlen+1) if not lastn else range(1, hlen+1)[-lastn:]:
+            print(": ".join([str(r if not lastn else r + lastn - hlen ).rjust(flen), readline.get_history_item(r)]))
+    else:
+        flen = len(str(-hlen))
+        for r in range(1, -lastn + 1):
+            print(": ".join([str(r).rjust(flen), readline.get_history_item(r)]))
+ipyhistory()

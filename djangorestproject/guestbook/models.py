@@ -42,3 +42,41 @@ class Todo(models.Model):
 
     def __str__(self):
         return self.text
+
+
+class Course(models.Model):
+    title = models.CharField(max_length=100)
+    slug = models.CharField(max_length=100)
+    date_added = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.title
+
+
+class Section(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    order = models.IntegerField()
+
+    def __str__(self):
+        return self.title
+
+
+class Lecture(models.Model):
+    section = models.ForeignKey(Section, on_delete=models.CASCADE)
+    title = models.CharField(max_length=100)
+    order = models.IntegerField()
+    code_link = models.CharField(max_length=100)
+    slug = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+
+def ipyhistory(lastn=None):
+    import readline
+    assert lastn is None or (isinstance(lastn, int) and lastn > 0), "Only positive numbers are allowed."
+    hlen = readline.get_current_history_length()
+    flen = len(str(lastn)) if lastn else len(str(hlen))
+    for r in range(hlen) if not lastn else range(hlen)[-lastn:]:
+        print(": ".join([str(r + lastn - hlen + 1 if lastn else r).rjust(flen), readline.get_history_item(r)]))

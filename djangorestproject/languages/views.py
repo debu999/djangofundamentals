@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from rest_framework import viewsets
+from rest_framework import viewsets, permissions
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
@@ -15,16 +15,19 @@ from .serializers import LanguageSerializer, ProgrammerSerializer, PopularitySer
 class LanguageView(viewsets.ModelViewSet):
     queryset = Language.objects.all()
     serializer_class = LanguageSerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
 
 
 class PopularityView(viewsets.ModelViewSet):
     queryset = Popularity.objects.all()
     serializer_class = PopularitySerializer
+    permission_classes = (permissions.IsAuthenticated,)
 
 
 class ProgrammerView(viewsets.ModelViewSet):
     queryset = Programmer.objects.all()
     serializer_class = ProgrammerSerializer
+    permission_classes = (permissions.IsAdminUser,)
 
 
 def index(request):

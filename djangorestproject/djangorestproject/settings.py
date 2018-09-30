@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from datetime import timedelta
 from pathlib import Path
 from .utils.ubuntu import getlocaliplist
 
@@ -40,7 +41,8 @@ INSTALLED_APPS = [
     "rest_framework",
     "restapi",
     "languages",
-    "guestbook"
+    "guestbook",
+    "urlsexamples",
 ]
 
 MIDDLEWARE = [
@@ -120,9 +122,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-IN'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Singapore'
 
 USE_I18N = True
 
@@ -140,3 +142,15 @@ PROJECT_ROOT = Path(__file__).parents[1]
 STATICFILES_DIRS = [os.path.join(PROJECT_ROOT, 'guestbook/static/'), ]
 
 LOGIN_REDIRECT_URL = "/guestbook/todoindex"
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_AUTHENTICATION_CLASSES": ("rest_framework_simplejwt.authentication.JWTAuthentication",
+                                       'rest_framework.authentication.BasicAuthentication',
+                                       'rest_framework.authentication.SessionAuthentication',)
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(seconds=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1)
+}

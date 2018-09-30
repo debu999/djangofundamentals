@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 
@@ -6,10 +8,12 @@ from django.http import HttpResponse
 from django.views.decorators.http import require_POST
 from .models import Comment, Todo
 from . import models
-from .forms import CommentForm, TodoForm, NewTodoForm
-from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from .forms import CommentForm, NewTodoForm
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
 
 
+@login_required(login_url="/accounts/login")
 def home(request):
     return HttpResponse("Hello World from guestbook app.")
 
@@ -42,17 +46,22 @@ def add(request):
 
 def todoindex(request):
     todo_list = Todo.objects.order_by("id")
-    # form = TodoForm()
+    mydate = datetime.now()
+
+
     form = NewTodoForm()
-    context = {"todo_list": todo_list, "form": form}
+    context = {"todo_list": todo_list, "form": form, "mydate": mydate}
     return render(request, "guestbook/todoindex.html", context=context)
 
 
 @require_POST
 def addtodo(request):
-    # form = TodoForm(request.POST)
-    # text = request.POST["text"]
-    # print(text)
+    """
+
+    :param request: HttpRequest object
+    :return: None. Redirects to Webpage.
+    if pk is not available defaults to id=0.
+    """
     pk = request.POST.get("id_todo", 0)
     if pk:
         todoobj = Todo.objects.get(pk=pk)
@@ -102,7 +111,7 @@ def register(request):
             form.save()
             username = form.cleaned_data["username"]
             password = form.cleaned_data["password1"]
-            password2 = form.cleaned_data["password2"]
+
             user = authenticate(username=username, password=password)
             login(request, user)
 
