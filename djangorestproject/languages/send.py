@@ -1,4 +1,5 @@
 from json import JSONDecodeError
+import random
 from time import sleep
 import os
 import requests
@@ -32,8 +33,10 @@ def gettoken(uid, pwd):
 
 
 def getpopularity(access, refresh):
+    endpoints = ('popularity', 'languages', "programmer")
     headers = {"Authorization": f"Bearer {access}"}
-    r = requests.get(url="http://localhost:8000/popularity/", headers=headers)
+    ep = random.choice(endpoints)
+    r = requests.get(url=f"http://localhost:8000/{ep}/", headers=headers)
     sleep(.2)
     if not r.status_code == 200:
         data = {"refresh": refresh}
@@ -41,7 +44,7 @@ def getpopularity(access, refresh):
         r1 = requests.post(url="http://localhost:8000/api/token/refresh", data=data)
         access = r1.json().get("access")
         headers = {"Authorization": f"Bearer {access}"}
-        r = requests.get(url="http://localhost:8000/popularity/", headers=headers)
+        r = requests.get(url=f"http://localhost:8000/{ep}/", headers=headers)
     return r.content.decode("utf-8"), access
 
 

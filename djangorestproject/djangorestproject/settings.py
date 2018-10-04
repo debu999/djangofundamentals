@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "languages",
     "guestbook",
     "urlsexamples",
+    "weather",
 ]
 
 MIDDLEWARE = [
@@ -99,6 +100,14 @@ DATABASES = {
             "HOST": "localhost",
             "PORT": "5432",
         }
+    # {
+    #     "ENGINE": "django.db.backends.postgresql_psycopg2",
+    #     "NAME": "jinlorzq",
+    #     "USER": "jinlorzq",
+    #     "PASSWORD": "3E27HuKcAWJblr5i9EGxr6g1xmbHkR47",
+    #     "HOST": "tantor.db.elephantsql.com",
+    #     "PORT": "5432",
+    # }
 }
 
 # Password validation
