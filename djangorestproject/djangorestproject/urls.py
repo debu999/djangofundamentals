@@ -23,6 +23,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 urlpatterns = [
     re_path(r"^admin/", admin.site.urls),
     re_path(r"^employees/", views.EmployeeList.as_view()),
+    path("wt/", include("weather.urls")),
     path('', include("languages.urls")),
     path('guestbook/', include("guestbook.urls")),
     path('accounts/', include("django.contrib.auth.urls")),
@@ -30,5 +31,4 @@ urlpatterns = [
     path("apiauth/", include("rest_framework.urls")),
     path("api/token", TokenObtainPairView.as_view()),
     path("api/token/refresh", TokenRefreshView.as_view()),
-    path("wt/", include("weather.urls"))
 ]

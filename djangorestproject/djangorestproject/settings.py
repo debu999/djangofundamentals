@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "guestbook",
     "urlsexamples",
     "weather",
+    "django.contrib.humanize"
 ]
 
 MIDDLEWARE = [
@@ -163,3 +164,10 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(seconds=1),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1)
 }
+
+EMAIL_HOST = 'imap.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'debu999@gmail.com'
+EMAIL_HOST_PASSWORD = os.environ.get("GMAIL_PWD")
+EMAIL_USE_SSL = False
+EMAIL_USE_TLS = True

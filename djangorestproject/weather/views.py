@@ -10,6 +10,7 @@ from .forms import CityForm
 
 # Create your views here.
 from weather.models import City
+from django.core.mail import send_mail
 
 
 def wtindex(request):
@@ -60,3 +61,10 @@ def wtindex(request):
 
     pp(context)
     return render(request, "weather/index.html", context=context)
+
+
+def sendmail(request):
+    send_mail("hello from Debabrata...", "Hello there its a Automated Request", "debu999@gmail.com",
+              ["jabe@spindl-e.com", ],
+              fail_silently=False)
+    return render(request, "weather/index.html")

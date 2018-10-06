@@ -1,4 +1,5 @@
 {% load static %}
+{% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,5 +143,20 @@
 <script type="text/javascript">
     removechecked();
 </script>
+
+{% if hm %}
+    {% for x,y in hm.items %}
+        <h2>
+            {{ x }}:{{ y|apnumber }}/{{ y|intword }}/{{ y|intcomma }}/{{ y|ordinal }}
+            {#            {{ hm|getitem:'first'|apnumber }}#}
+        </h2>
+    {% endfor %}
+{% endif %}
+<h3>
+    {{ mydate }}| {{ mydate|naturalday }}
+</h3>
+<h3> {{ otdt }}| {{ otdt|naturalday }} </h3>
+<h3> {{ f }}| {{ f|naturalday }}| {{ f|naturaltime }} </h3>
+<h3> {{ p }}| {{ p|naturalday }}| {{ p|naturaltime }} </h3>
 </body>
 </html>

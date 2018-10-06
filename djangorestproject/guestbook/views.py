@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
@@ -11,7 +11,12 @@ from . import models
 from .forms import CommentForm, NewTodoForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+from django.template.defaulttags import register
 
+
+@register.filter
+def getitem(dict, key):
+    return dict.get(key, None)
 
 @login_required(login_url="/accounts/login")
 def home(request):
@@ -50,7 +55,18 @@ def todoindex(request):
 
 
     form = NewTodoForm()
-    context = {"todo_list": todo_list, "form": form, "mydate": mydate}
+    hm = {
+        "first": 2343251,
+        "second": 47338475023485,
+        "third": 234,
+        "fourth": 79345,
+        "fifth": 2045
+
+    }
+    context = {"todo_list": todo_list, "form": form, "mydate": mydate, "hm": hm,
+               "otdt": mydate - timedelta(3),
+               "f": mydate + timedelta(days=8434),
+               "p": mydate - timedelta(days=39)}
     return render(request, "guestbook/todoindex.html", context=context)
 
 
