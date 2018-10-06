@@ -1,0 +1,26 @@
+>>> ipyhistory()
+ 1: from guestbook.models import ipyhistory
+ 2: from weather.models import City
+ 3: City.objects.get(pk=7823).populationcount
+ 4: City.objects.get(pk=7863).populationcount
+ 5: from django.db import connection
+ 6: with connection.cursor() as cursor:
+ 7:     cursor.execute("update weather_city set populationcouunt = random_between(100000, 2000000)")
+ 8:     cursor.execute("select * from weather_city limit 1")
+ 9:     r = cursor.fetchone()
+10: with connection.cursor() as cursor:
+11:     cursor.execute("update weather_city set populationcount = random_between(100000, 2000000)")
+12:     cursor.execute("select * from weather_city limit 1")
+13:     r = cursor.fetchone()
+14: r
+15: with connection.cursor() as cursor:
+16:     cursor.execute("select * from weather_city limit 5")
+17:     r = cursor.fetchall()
+18: r
+19: from django.db.models import Sum, Min, Avg, Max
+20: City.objects.aggregate(Sum("populationcount"))
+21: City.objects.aggregate(popsum = Sum("populationcount"), popavg = Avg("populationcount", popmin = Min("populationcount"), popmax = Max("populationcount"))
+22: City.objects.aggregate(popsum = Sum("populationcount"), popavg = Avg("populationcount"), popmin = Min("populationcount"), popmax = Max("populationcount"))
+23: from weather.models import Country
+24: ipyhistory()
+>>>
