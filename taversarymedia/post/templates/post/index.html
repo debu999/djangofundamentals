@@ -1,0 +1,36 @@
+{% extends "post/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    {#    <h1 >Hola A simple posts app. Hello again.</h1>#}
+    {#    <h2>A smaller Header</h2>#}
+    <h3 class="center-align red lighten-3">Latest Posts</h3>
+    <div class="container">
+        {% if posts|length %}
+            {#            <table>#}
+            {#            <th>Title</th>#}
+            {#            <th>Post Details</th>#}
+            {#            <th>Created</th>#}
+            {#            {% for p in posts %}#}
+            {#                <tr>#}
+            {#                    <td>{{ p.title }}</td>#}
+            {#                    <td>{{ p.body }}</td>#}
+            {#                    <td>{{ p.createdate }}</td>#}
+            {#                </tr>#}
+            {#            {% endfor %}#}
+            {#            </table>#}
+            <ul class="collection">
+                {% for p in posts %}
+                    <li class="collection-item">
+                        <a href="{% url 'details' p.id %}">{{ p.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+{% endblock %}
+
+

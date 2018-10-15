@@ -1,0 +1,27 @@
+{% extends "gameplay/base.html" %}
+{% load static %}
+{% block title %}Gamplay Home Page{% endblock %}
+{% block heading %}Tictactoe Home{% endblock %}
+{% block links %}
+    <link href="{% static 'gameplay/css/materialize.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    <h1>Welcome {{ user.username }}</h1>
+    Hi! There are {{ ngames }} games in the database.
+    <ul>
+        {% for g in games %}
+            <li>Game {{ g.id }}: {{ g.fplayer }} vs {{ g.splayer }}</li>
+        {% endfor %}
+    </ul>
+    These are your active games.
+    <ul>
+        {% for g in agames %}
+            <li>Game {{ g.id }}: {{ g.fplayer }} vs {{ g.splayer }}</li>
+        {% endfor %}
+    </ul>
+
+    <a class="black-text" href="{% url 'player_invite' %}">
+        Invite another player to play a game
+    </a>
+{% endblock %}

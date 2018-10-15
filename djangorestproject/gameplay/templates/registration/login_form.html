@@ -1,0 +1,30 @@
+{% extends 'gameplay/base.html' %}
+{% load staticfiles %}
+{% block title %}
+    Login
+{% endblock %}
+{% block links %}
+    <link href="{% static 'gameplay/css/materializeicons.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+    {% if form.errors %}
+        <p>There is something wrong with what you entered...</p>
+    {% endif %}
+    {% url "welcome" as w %}
+    {% url "welcome1" as w1 %}
+    {% if not next == w and not next == w1 %}
+        <p>Hey you cant access that page. Please login with correct credentials or signup.</p>
+    {% endif %}
+    <form role="form"
+          action="{% url 'player_login' %}"
+          method="post">
+        {% csrf_token %}
+        <p>Please Login</p>
+        {{ form }}
+        <button class="waves-effect waves-light waves-teal btn-small" type="submit" name="action">Login
+            <i class="material-icons left">send</i>
+        </button>
+        <input type="hidden" name="next" value="{{ next }}">
+    </form>
+{% endblock %}

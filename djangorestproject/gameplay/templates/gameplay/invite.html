@@ -1,0 +1,18 @@
+{% extends "gameplay/base.html" %}
+{% load staticfiles %}
+{% block title %}New Invitation{% endblock %}
+{% block heading %}Tictactoe Home{% endblock %}
+{% block links %}
+    {#    <link href="{% static 'gameplay/css/materialize.css' %}" rel="stylesheet">#}
+{% endblock %}
+
+{% block content %}
+    <form method="post" action="{% url "player_invite" %}">
+        {% csrf_token %}
+        {{ form }}
+        <button class="waves-effect waves-light waves-teal btn-small" type="submit" name="action">Send
+            <i class="material-icons left"></i>
+        </button>
+    </form>
+
+{% endblock %}
