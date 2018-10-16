@@ -1,5 +1,6 @@
 {% extends 'gameplay/base.html' %}
 {% load staticfiles %}
+{% load crispy_forms_tags %}
 {% block title %}
     Login
 {% endblock %}
@@ -13,7 +14,7 @@
     {% endif %}
     {% url "welcome" as w %}
     {% url "welcome1" as w1 %}
-    {% if not next == w and not next == w1 %}
+    {% if not next == w and not next == w1 and not next == "home" %}
         <p>Hey you cant access that page. Please login with correct credentials or signup.</p>
     {% endif %}
     <form role="form"
@@ -21,7 +22,7 @@
           method="post">
         {% csrf_token %}
         <p>Please Login</p>
-        {{ form }}
+        {{ form | crispy }}
         <button class="waves-effect waves-light waves-teal btn-small" type="submit" name="action">Login
             <i class="material-icons left">send</i>
         </button>

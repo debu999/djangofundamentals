@@ -2,64 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6510dcdf-a698-4418-ab95-2d75b301ede8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/migrations/0003_auto_20181009_0000.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/migrations/0004_invitation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/snippets.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/apple-touch-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/browserconfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/css/bootstrap-theme.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/css/bootstrap-theme.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/css/bootstrap-theme.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/css/bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/css/bootstrap.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/css/materialize.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/css/materialize.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/css/materializeicons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/humans.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/img" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/materialize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/materialize.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/plugins.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/vendor/bootstrap.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/vendor/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/vendor/jquery-1.11.2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/vendor/jquery-1.11.2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/vendor/npm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/tile-wide.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/tile.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/404.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/invite.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/welcome.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/materialize_min_js.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/templates/post/details.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/templates/post/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/templates/post/layout.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/post/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/taversarymedia/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/migrations/0005_auto_20181016_1041.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/jquery-3.3.1.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/static/gameplay/js/jquery-3.3.1.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/acceptinvitation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../djangorestproject/djangorestproject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangorestproject/djangorestproject/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../djangorestproject/djangorestproject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangorestproject/djangorestproject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangorestproject/gameplay/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangorestproject/gameplay/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/invite.html" beforeDir="false" afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/gameplay/invite.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/registration/login_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/templates/registration/login_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangorestproject/gameplay/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../djangorestproject/gameplay/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../djangorestproject/gameplay/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -147,10 +103,10 @@
         <entry file="file://$PROJECT_DIR$/post/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="285">
-              <caret line="22" column="14" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="14" />
+              <caret line="21" column="14" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="14" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
-                <marker date="1538910425710" expanded="true" signature="133:390" ph="..." />
+                <marker date="1539570509224" expanded="true" signature="133:392" ph="..." />
               </folding>
             </state>
           </provider>
@@ -160,7 +116,7 @@
         <entry file="file://$PROJECT_DIR$/post/urls.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -184,7 +140,7 @@
         <entry file="file://$PROJECT_DIR$/post/templates/post/details.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
-              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+              <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -410,12 +366,12 @@
       <workItem from="1538900456661" duration="1717000" />
       <workItem from="1538902485459" duration="790000" />
       <workItem from="1538903491345" duration="10217000" />
-      <workItem from="1539408166104" duration="2989000" />
+      <workItem from="1539408166104" duration="4141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26344000" />
+    <option name="totallyTimeSpent" value="27496000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -544,10 +500,10 @@
     <entry file="file://$PROJECT_DIR$/post/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
-          <caret line="22" column="14" selection-start-line="22" selection-start-column="4" selection-end-line="22" selection-end-column="14" />
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="14" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
-            <marker date="1538910425710" expanded="true" signature="133:390" ph="..." />
+            <marker date="1539570509224" expanded="true" signature="133:392" ph="..." />
           </folding>
         </state>
       </provider>
@@ -555,7 +511,7 @@
     <entry file="file://$PROJECT_DIR$/post/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="5" column="26" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
           </folding>
@@ -565,7 +521,7 @@
     <entry file="file://$PROJECT_DIR$/post/templates/post/details.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+          <caret line="16" column="27" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
         </state>
       </provider>
     </entry>

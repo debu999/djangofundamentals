@@ -51,8 +51,14 @@ class Move(models.Model):
 
 class Invitation(models.Model):
     fuser = models.ForeignKey(User, on_delete=models.CASCADE, related_name="invitation_sent")
-    tuser = models.ForeignKey(User, on_delete=models.CASCADE, related_name="invitation_received")
-    message = models.CharField(max_length=100)
+    tuser = models.ForeignKey(User, on_delete=models.CASCADE, related_name="invitation_received",
+                              verbose_name="User to Invite",
+                              help_text="Please select the user you want to play game with.")
+    message = models.CharField(max_length=300,
+                               blank=True,
+                               verbose_name="Optional Message",
+                               help_text="Its always good to add a friendly message.")
+
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
