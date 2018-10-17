@@ -1,0 +1,30 @@
+{% extends "gameplay/base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}Gamplay Signup{% endblock %}
+{% block heading %}Tictactoe Home{% endblock %}
+{% block links %}
+    <link href="{% static 'gameplay/css/materialize.css' %}" rel="stylesheet">
+    <style type="text/css">
+        {#* { padding:0; margin:0; }#}
+        #test {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <form role="form"
+          action="{% url 'player_signup' %}"
+          method="post">
+        {% csrf_token %}
+        <p>Please fill in the below form to create an account.</p>
+        {{ form | crispy }}
+        <button type="submit" class="btn btn-success">Sign Up</button>
+    </form>
+
+{% endblock %}
+
+

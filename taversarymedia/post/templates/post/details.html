@@ -1,0 +1,20 @@
+{% extends "post/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+    <h3 class="center-align red lighten-3">Post {{ p.title|slice:":10" }} Details</h3>
+    <div class="card">
+        <div class="card-content">
+            {{ p.body }}
+        </div>
+        <div class="card-action">
+            {{ p.createdate }}
+        </div>
+    </div>
+    <a href="{% url 'index' %}" class="btn">Go Back</a>
+{% endblock %}
+
+

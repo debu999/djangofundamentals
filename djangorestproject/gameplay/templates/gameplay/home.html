@@ -1,0 +1,69 @@
+{% extends "gameplay/base.html" %}
+{% load static %}
+{% block title %}Gamplay Home Page{% endblock %}
+{% block heading %}Tictactoe Home{% endblock %}
+{% block links %}
+    <link href="{% static 'gameplay/css/materialize.css' %}" rel="stylesheet">
+    <style type="text/css">
+        {#* { padding:0; margin:0; }#}
+        #test {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <h5 class="text-accent-1">
+        <div class="p-3 mb-2 bg-success text-white">
+            Welcome {{ user.username }}
+        </div>
+    </h5>
+    <div class="container" id="test">
+        <div class="row">
+            <div class="col-sm-8">
+                <h5 class="text-accent-1"> Hi! There are {{ ngames }} games in the database.</h5>
+                {#                <ul class="list-group">#}
+                {#                    {% for g in games %}#}
+                {#                        <li class="list-group-item">Game {{ g.id }}: {{ g.fplayer }} vs {{ g.splayer }}</li>#}
+                {#                    {% endfor %}#}
+                {#                </ul>#}
+                <h5 class="text-darken-3"> Active Games </h5>
+                {#                <ul class="list-group">#}
+                {#                    {% for g in agames %}#}
+                {#                        <li>Game {{ g.id }}: {{ g.fplayer }} vs {{ g.splayer }}</li>#}
+                {#                        <a class="list-group-item" href="{{ g.get_absolute_url }}">#}
+                {#                        {{ g.fplayer }} vs {{ g.splayer }}#}
+                {#                        </a>#}
+                {#                    {% endfor %}#}
+                {#                </ul>#}
+                {% include "gameplay/gamelistsnippet.html" with gamelist=agames %}
+                <h5 class="text-darken-3"> Finished Games </h5>
+                {% include "gameplay/gamelistsnippet.html" with gamelist=finishedgames %}
+
+                <p class="deep-purple-text">Click Below to invite someone to play with you.</p>
+                <p>
+                    <a class="btn btn-primary" href="{% url 'player_invite' %}">
+                        Start a Game
+                    </a>
+                </p>
+            </div>
+            <div class="col-sm-4">
+                <h3>Invitations</h3>
+                {% if invitations %}
+                    <div class="list-group">
+                        {% for inv in invitations %}
+                            <a class="list-group-item"
+                               href="{% url 'player_acceptinvitation' id=inv.id %}">{{ inv.fuser.username }} has invited
+                                you
+                                to a game</a>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <p>You have no Game invitations.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

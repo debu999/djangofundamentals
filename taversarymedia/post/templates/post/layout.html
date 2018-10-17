@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <!-- Compiled and minified CSS -->
+
+    <link href="{% static 'post/css/materialize.min.css' %}" rel="stylesheet">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="{% static 'post/js/materialize.min.js' %}"></script>
+
+    <title>
+        {% block title %}
+
+        {% endblock %}
+    </title>
+</head>
+<body>
+<header class="container center-align">
+    <h1 class="green lighten-1">Media Blog</h1>
+</header>
+
+<div class="container">
+    {% block content %}
+
+    {% endblock %}
+
+    <br/>
+    <a style="display:block" href="{% url 'admin:index' %}"
+       class="center-align lighten-5 text-lighten-4">Administration</a>
+</div>
+</body>
+</html>
