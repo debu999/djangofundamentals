@@ -47,8 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.humanize",
     "gameplay",
     "django_extensions",
-    "crispy_forms"
-]
+    "crispy_forms"]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -175,5 +174,4 @@ EMAIL_HOST_USER = 'debu999@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get("GMAIL_PWD")
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
-
 CRISPY_TEMPLATE_PACK = "bootstrap4"
