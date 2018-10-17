@@ -3,7 +3,7 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import views as auth_views
 
-from .views import gamedetails, welcome, invite, acceptinvitation
+from .views import gamedetails, welcome, invite, acceptinvitation, gamedetail, makemove
 
 urlpatterns = [
     path("gamedetails/", gamedetails, name="gamedetails"),
@@ -13,5 +13,7 @@ urlpatterns = [
     path("home/", welcome, name="welcome"),
     re_path("^$", welcome, name="welcome1"),
     re_path(r"invite$", invite, name="player_invite"),
-    re_path(r"acceptinvitation/(?P<id>\d+)/$", acceptinvitation, name="player_acceptinvitation")
+    re_path(r"acceptinvitation/(?P<id>\d+)/$", acceptinvitation, name="player_acceptinvitation"),
+    re_path(r"gamedetail/(?P<id>\d+)/$", gamedetail, name="gameplay_detail"),
+    re_path(r"makemove/(?P<id>\d+)/$", makemove, name="gameplay_makemove"),
 ]

@@ -15,19 +15,20 @@
     <script type="text/javascript" src="{% static 'gameplay/js/jquery-3.3.1.js' %}"
             crossorigin="anonymous">
     </script>
-    <link rel="stylesheet" href="{% static 'gameplay/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static 'gameplay/css/materialize.css' %}">
-    <script type="text/javascript" src="{% static 'gameplay/js/materialize.js' %}">
-    </script>
-    <style>
-        body {
-            padding-top: 70px;
-            padding-bottom: 20px;
-        }
-    </style>
-    {#    <link rel="stylesheet" href="{% static 'gameplay/css/bootstrap-theme.min.css' %}">#}
-    <link rel="stylesheet" href="{% static 'gameplay/css/main.css' %}">
-
+    {% block styling %}
+        <link rel="stylesheet" href="{% static 'gameplay/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'gameplay/css/materialize.css' %}">
+        <script type="text/javascript" src="{% static 'gameplay/js/materialize.js' %}">
+        </script>
+        <style>
+            body {
+                padding-top: 70px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="{% static 'gameplay/css/bootstrap-theme.min.css' %}">
+        <link rel="stylesheet" href="{% static 'gameplay/css/main.css' %}">
+    {% endblock %}
     <script src="{% static 'gameplay/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js' %}"></script>
     {% block links %}{% endblock %}
 </head>

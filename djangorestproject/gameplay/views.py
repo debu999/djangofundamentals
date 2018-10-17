@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 # Create your views here.
 from .models import Game, Move
 from django import template
-from .forms import InvitationModelForm
+from .forms import InvitationModelForm, MoveForm
 from .models import Invitation
 
 register = template.Library()
@@ -23,12 +23,14 @@ def gamedetails(request):
     # allmygames = list(gfp) + list(gsp)
     mygames = Game.objects.gamesforuser(request.user)
     activegames = mygames.active()
+    finishedgames = mygames.difference(activegames)
     invitations = request.user.invitation_received.all()
     context = {"ngames": Game.objects.count(),
                # "games": allmygames
                "games": mygames,
                "agames": activegames,
-               "invitations": invitations
+               "invitations": invitations,
+               "finishedgames": finishedgames
                }
 
     return render(request, "gameplay/home.html", context=context)
@@ -72,7 +74,33 @@ def acceptinvitation(request, id):
                 splayer=invitation.tuser,
             )
         invitation.delete()
-        return redirect("gamedetails")
+        # return redirect("gamedetails")
+        return redirect(game)
     else:
         return render(request, "gameplay/acceptinvitation.html",
                       {"invitation": invitation})
+
+
+@login_required(login_url="player_login")
+def gamedetail(request, id):
+    game = get_object_or_404(Game, pk=id)
+    context = {"game": game}
+    print(vars(game))
+    if game.isusermove(request.user):
+        context["form"] = MoveForm()
+    return render(request, "gameplay/gamedetail.html", context=context)
+
+
+@login_required(login_url="player_login")
+def makemove(request, id):
+    game = get_object_or_404(Game, pk=id)
+    if not game.isusermove(request.user):
+        raise PermissionDenied
+    move = game.newmove()
+    form = MoveForm(instance=move, data=request.POST)
+    if form.is_valid():
+        move.save()
+        return redirect("gameplay_detail", id)
+    else:
+        context = {"game": game, "form": form}
+        return render(request, "gameplay/gamedetail.html", context=context)

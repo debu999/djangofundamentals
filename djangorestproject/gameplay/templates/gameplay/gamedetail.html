@@ -1,0 +1,81 @@
+{% extends "gameplay/base.html" %}
+{% load staticfiles %}
+{% load crispy_forms_tags %}
+{% block title %}
+    Game {{ game.fplayer }} vs {{ game.splayer }}
+{% endblock %}
+
+{% block heading %}
+    Tictactoe Home
+{% endblock %}
+
+{% block styling %}
+    {{ block.super }}
+    <style type="text/css">
+        .tictactoe-table {
+            width: 300px;
+            border-width: 2px;
+        }
+
+        .tictactoe-cell {
+            background-color: yellow;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            vertical-align: middle !important;
+            font-size: 60px;
+            border-width: 2px;
+        }
+    </style>
+{% endblock styling %}
+
+{% block content %}
+    <div class="col-md-5">
+        {% if game.status == 'F' %}
+            {{ game.fplayer }} to play
+        {% elif game.status == 'S' %}
+            {{ game.splayer }} to play
+        {% elif game.status == 'W' %}
+            {{ game.fplayer }} won
+        {% elif game.status == 'L' %}
+            {{ game.splayer }} won
+        {% elif game.status == 'D' %}
+            It's A Draw
+        {% endif %}
+        <table class="table table-bordered tictactoe-table">
+            {% for row in game.board %}
+                <tr>
+                    {% for move in row %}
+                        <td class="tictactoe-cell">
+                            {% if move %}
+                                {% if move.byfirstplayer %}
+                                    X
+                                {% else %}
+                                    O
+                                {% endif %}
+
+                            {% endif %}
+                        </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {% if form %}
+        <div class="col-md-4">
+            <h5>
+                <div class="p-3 mb-2 bg-success text-white">
+                    It's your move.
+                </div>
+            </h5>
+            <form method="post" action="{% url 'gameplay_makemove' game.id %}">
+                {{ form | crispy }}
+                {% csrf_token %}
+                <button class="btn btn-primary">Make Move</button>
+            </form>
+
+        </div>
+
+    {% endif %}
+{% endblock %}
