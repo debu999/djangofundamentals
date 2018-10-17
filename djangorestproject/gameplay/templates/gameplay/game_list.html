@@ -1,0 +1,25 @@
+{% extends "gameplay/base.html" %}
+{% load staticfiles %}
+{% block title %}Gamplay All Games{% endblock %}
+{% block heading %}Tictactoe Home{% endblock %}
+{% block links %}
+    <link href="{% static 'gameplay/css/materialize.css' %}" rel="stylesheet">
+    <style type="text/css">
+        {#* { padding:0; margin:0; }#}
+        #test {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="well col-sm-5">
+        <h4 class="text-darken-3">All Games: </h4>
+        {% include "gameplay/gamelistsnippet.html" with gamelist=object_list %}
+    </div>
+
+{% endblock %}
+
+

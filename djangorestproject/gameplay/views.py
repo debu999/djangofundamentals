@@ -1,8 +1,12 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render, redirect, get_object_or_404
 
 # Create your views here.
+from django.urls import reverse_lazy
+from django.views.generic import ListView, CreateView
+
 from .models import Game, Move
 from django import template
 from .forms import InvitationModelForm, MoveForm
@@ -104,3 +108,13 @@ def makemove(request, id):
     else:
         context = {"game": game, "form": form}
         return render(request, "gameplay/gamedetail.html", context=context)
+
+
+class AllGamesList(ListView):
+    model = Game
+
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    template_name = "gameplay/signupform.html"
+    success_url = reverse_lazy("player_home")
